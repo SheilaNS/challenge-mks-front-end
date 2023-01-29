@@ -1,7 +1,7 @@
 ## Tecnologias utilizadas
 - [Next.js](https://nextjs.org/)
 - [Styled Components](https://styled-components.com/)
-- [React Toolkit](https://redux-toolkit.js.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Jest](https://jestjs.io/)
 
@@ -10,7 +10,7 @@
 2. Entre na pasta do repositório que você acabou de clonar `cd challenge-mks-front-end`
 3. Instale as dependências `npm install`
 4. Inicialize o projeto `npm run dev`
-5. Abra o navegador [http://localhost:3000/products](http://localhost:3000/propducts) 
+5. Abra o navegador [http://localhost:3000/products](http://localhost:3000/products) 
 
 ## Deploy on Vercel
 
