@@ -1,4 +1,6 @@
 import ProductCard from "@/components/ProductCard";
+import { useEffect, useState } from "react";
+import { fetchProducts } from "../api/fetchProducts";
 import { ProductContainer } from "./styles";
 
 interface ProductProps {
@@ -9,16 +11,25 @@ interface ProductProps {
 }
 
 export default function Products() {
+  const [products, setProducts] = useState<ProductProps[]>([]);
+
+  useEffect(() => {
+    fetchProducts().then((response) => {
+      setProducts(response.products);
+    });
+  }, []);
+
   return (
     <ProductContainer>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map((product) => (
+        <ProductCard
+          id={product.id}
+          key={product.id}
+          name={product.name}
+          photo={product.photo}
+          price={product.price}
+        />
+      ))}
     </ProductContainer>
   );
 }
