@@ -12,12 +12,12 @@ export const CartCardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
 
   img {
     width: 50px;
     object-fit: contain;
     height: 60px;
-    margin-right: 21px;
   }
 `
 
@@ -30,7 +30,7 @@ export const RemoveItemButton = styled.button`
   width: 18px;
   height: 18px;
   cursor: pointer;
-  right: -25px;
+  right: -22px;
   top: -50px;
 `
 
@@ -39,12 +39,10 @@ export const ProductName = styled.h1`
   font-weight: 400;
   width: 113px;
   height: 33px;
-  margin-right: 9px;
   display: flex;
   align-items: center;
 `
 export const ProductQuantity = styled.div`
-  margin-right: 40px;
   width: 50px;
   height: 29px;
   
@@ -80,4 +78,6 @@ export const ProductQuantity = styled.div`
 export const ProductPrice = styled.h2`
   font-size: 14px;
   font-weight: 700;
+  width: 80px;
+  text-align: right;
 `

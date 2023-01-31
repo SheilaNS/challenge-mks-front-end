@@ -29,6 +29,13 @@ export const Content = styled(Dialog.Content)`
   right: 0;
   overflow-y: auto;
   padding-bottom: 200px;
+
+  h3 {
+    color: ${(props) => props.theme.white};
+    margin-left: 40px;
+    font-size: 16px;
+    font-weight: 400;
+  }
 `
 
 export const CloseButton = styled(Dialog.Close)`
