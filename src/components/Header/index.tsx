@@ -5,9 +5,10 @@ import logo from '../../assets/logo.svg';
 import cartIcon from '../../assets/cart-icon.svg';
 import { CartModal } from "../CartModal";
 import { useAppSelector } from "@/hooks";
+import { cartState } from "@/redux/reducers/cart";
 
 export function Header() {
-  const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector(cartState);
 
   return (
     <HeaderContainer>

@@ -17,7 +17,6 @@ interface ActionRemoveProductProps {
 
 export function CartCard(props: Product) {
   const dispatch = useAppDispatch();
-  console.log(props);
 
   function handleRemoveProduct(id: ActionRemoveProductProps) {
     dispatch(removeProductFromCart(id));

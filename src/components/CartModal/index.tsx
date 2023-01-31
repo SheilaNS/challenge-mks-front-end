@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/hooks";
+import { cartState } from "@/redux/reducers/cart";
 import { priceFormater } from "@/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "phosphor-react";
@@ -13,7 +14,7 @@ import {
 } from "./styles";
 
 export function CartModal() {
-  const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector(cartState);
 
   return (
     <Dialog.Portal>
