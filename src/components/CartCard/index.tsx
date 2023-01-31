@@ -1,5 +1,5 @@
 import { useAppDispatch } from "@/hooks";
-import { Product, removeProductFromCart } from "@/redux/reducers/cart";
+import { Product, removeProductFromCart, updateProductQuantity } from "@/redux/reducers/cart";
 import { priceFormater } from "@/utils";
 import Image from "next/image";
 import { Minus, Plus, X } from "phosphor-react";
@@ -15,11 +15,20 @@ interface ActionRemoveProductProps {
   productId: string;
 }
 
+interface ActionUpdateProductProps {
+  product: Product;
+  operator: string;
+}
+
 export function CartCard(props: Product) {
   const dispatch = useAppDispatch();
 
   function handleRemoveProduct(id: ActionRemoveProductProps) {
     dispatch(removeProductFromCart(id));
+  }
+
+  function handleUpdate(updateInfo: ActionUpdateProductProps) {
+    dispatch(updateProductQuantity(updateInfo));
   }
 
   return (
@@ -29,11 +38,15 @@ export function CartCard(props: Product) {
       <ProductQuantity>
         <p>Qtd.</p>
         <div>
-          <button>
+          <button
+            onClick={() => handleUpdate({ product: {...props}, operator: 'sum' })}
+          >
             <Plus size={10} />
           </button>
           <span>{props.qtd}</span>
-          <button>
+          <button
+            onClick={() => handleUpdate({ product: {...props}, operator: 'sub' })}
+          >
             <Minus size={10} />
           </button>
         </div>

@@ -28,7 +28,7 @@ export function CartModal() {
         </CloseButton>
 
         {cart.items.length === 0 ? (
-          <p>Carrinho vazio</p>
+          <h3>Seu carrinho está vazio.</h3>
         ) : (
           cart.items.map((elem) => <CartCard key={elem.id} {...elem} />)
         )}

@@ -12,22 +12,8 @@ export interface CartState {
 }
 
 const initialState: CartState = {
-  items: [
-    {
-      id: 2,
-      name: "AirPods",
-      brand: "Apple",
-      description:
-        "Criados pela Apple Ligam e se conectam automaticamente Configuração com apenas um toque para todos seus aparelhos Apple.",
-      photo:
-        "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/airpods.webp",
-      price: "1200.00",
-      createdAt: "2023-01-23T18:17:04.771Z",
-      updatedAt: "2023-01-23T18:17:04.771Z",
-      qtd: 1,
-    },
-  ],
-  total: 1200,
+  items: [],
+  total: 0,
 };
 
 export const cartSlice = createSlice({
@@ -36,35 +22,60 @@ export const cartSlice = createSlice({
   reducers: {
     addProductToCart(state, action) {
       const { product, quantity } = action.payload;
-      console.log(product);
-      console.log(quantity);
+
       const existingItem = state.items.find((item) => item.id === product.id);
+
       if (existingItem) {
         existingItem.qtd += quantity;
       } else {
         state.items.push({ ...product, qtd: quantity });
       }
+
       state.total = state.items.reduce(
         (acc, item) => acc + +item.price * item.qtd,
         0
       );
     },
+
     removeProductFromCart(state, action: PayloadAction<{ productId: string }>) {
-      const productIndex = state.items.findIndex(
-        (item) => item.id === +action.payload.productId
-      );
+      const { productId } = action.payload;
+      const productIndex = state.items.findIndex((item) => item.id === +productId);
+
       if (productIndex >= 0) {
         state.items.splice(productIndex, 1);
       }
+
       state.total = state.items.reduce(
         (acc, item) => acc + +item.price * item.qtd,
         0
       );
+    },
+
+    updateProductQuantity(state, action) {
+      const { product, operator } = action.payload;
+      
+      const item = state.items.find((elem) => elem.id === product.id);
+      
+      if (+product.qtd === 1 && operator === 'sub') {
+        state.items = state.items.filter((elem) => elem.id !== product.id);
+      } else {
+        item!.qtd -= 1;
+      }
+
+      if (operator === 'sum') {
+        item!.qtd = product.qtd + 1;
+      }
+
+      state.total = state.items.reduce(
+        (acc, item) => acc + +item.price * +item.qtd,
+        0
+      );  
     },
   },
 });
 
-export const { addProductToCart, removeProductFromCart } = cartSlice.actions;
+export const { addProductToCart, removeProductFromCart, updateProductQuantity } = cartSlice.actions;
+
 export default cartSlice.reducer;
 
 export function cartState(state: RootState) { return state.cart}
