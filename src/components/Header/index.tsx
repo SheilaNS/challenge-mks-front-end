@@ -13,12 +13,12 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <Image src={logo} alt='' />
+        <Image src={logo} alt='MKS Sistemas logo image' />
 
         <Dialog.Root>
           <Dialog.Trigger asChild>
             <CartButton>
-            <Image src={cartIcon} alt="" />
+            <Image src={cartIcon} alt="Cart icon" />
             <span>{cart.items.length}</span>
             </CartButton>
           </Dialog.Trigger>

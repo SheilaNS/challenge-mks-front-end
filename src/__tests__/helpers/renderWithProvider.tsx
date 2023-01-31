@@ -5,13 +5,15 @@ import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
-export function renderWithProvider( children: React.ReactElement) {
+export function renderWithProvider(children: React.ReactElement) {
   return {
     ...render(
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
 
-        <Provider store={store}>{children}</Provider>
+        <Provider store={store}>
+          {children}  
+        </Provider>
       </ThemeProvider>
     ),
   };

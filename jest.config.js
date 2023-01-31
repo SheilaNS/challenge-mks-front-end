@@ -6,6 +6,7 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testRegex: "(<rootDir>/src/__tests__/.*|(\\.|/)(test))\\.tsx?$",
   moduleNameMapper: {
     "@/(.*)": "<rootDir>/src/$1",
   },
