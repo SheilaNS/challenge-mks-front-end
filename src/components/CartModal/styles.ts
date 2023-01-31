@@ -28,6 +28,7 @@ export const Content = styled(Dialog.Content)`
   top: 0;
   right: 0;
   overflow-y: auto;
+  padding-bottom: 200px;
 `
 
 export const CloseButton = styled(Dialog.Close)`
@@ -45,10 +46,14 @@ export const CloseButton = styled(Dialog.Close)`
 `;
 
 export const TotalContainer = styled.div`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 36px;
+  bottom: 97px;
+  width: 485px;
+  background: ${(props) => props.theme.primary};
 
   p {
     color: ${(props) => props.theme.white};
@@ -58,7 +63,7 @@ export const TotalContainer = styled.div`
 `
 
 export const CheckoutButton = styled.button`
-  width: 100%;
+  width: 485px;
   height: 97px;
   background: ${(props) => props.theme.black};
   color: ${(props) => props.theme.white};
@@ -66,4 +71,6 @@ export const CheckoutButton = styled.button`
   font-size: 28px;
   border: 0;
   cursor: pointer;
+  position: fixed;
+  bottom: 0;
 `

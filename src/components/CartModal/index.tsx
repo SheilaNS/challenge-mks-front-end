@@ -1,9 +1,20 @@
+import { useAppSelector } from "@/hooks";
+import { priceFormater } from "@/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "phosphor-react";
 import { CartCard } from "../CartCard";
-import { CheckoutButton, CloseButton, Content, Overlay, Title, TotalContainer } from "./styles";
+import {
+  CheckoutButton,
+  CloseButton,
+  Content,
+  Overlay,
+  Title,
+  TotalContainer,
+} from "./styles";
 
 export function CartModal() {
+  const cart = useAppSelector((state) => state.cart);
+
   return (
     <Dialog.Portal>
       <Overlay />
@@ -15,20 +26,18 @@ export function CartModal() {
           <X size={20} />
         </CloseButton>
 
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
-        <CartCard />
+        {cart.items.length === 0 ? (
+          <p>Carrinho vazio</p>
+        ) : (
+          cart.items.map((elem) => <CartCard key={elem.id} {...elem} />)
+        )}
 
         <TotalContainer>
           <p>Total:</p>
-          <p>R$798</p>
+          <p>R${priceFormater(cart.total.toString().concat(".00"))}</p>
         </TotalContainer>
 
         <CheckoutButton>Finalizar Compra</CheckoutButton>
-
       </Content>
     </Dialog.Portal>
   );

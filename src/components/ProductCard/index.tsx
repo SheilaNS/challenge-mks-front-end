@@ -11,7 +11,7 @@ import { useAppDispatch } from "@/hooks";
 import { ApiProduct } from "@/@types/interfaces";
 import { addProductToCart, Product } from "@/redux/reducers/cart";
 
-interface ActionProductProps {
+interface ActionAddProductProps {
   product: Product;
   quantity: number;
 }
@@ -19,7 +19,7 @@ interface ActionProductProps {
 export function ProductCard(props: ApiProduct) {
   const dispatch = useAppDispatch();
 
-  function handleAddProduct(product: ActionProductProps) {
+  function handleAddProduct(product: ActionAddProductProps) {
     dispatch(addProductToCart(product));
   }
 
