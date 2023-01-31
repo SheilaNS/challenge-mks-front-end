@@ -4,17 +4,15 @@ import { Header } from '@/components/Header';
 import { renderWithProvider } from './helpers/renderWithProvider';
 
 describe('Header component', () => {
-  it('Is in the document', () => {
-    renderWithProvider(<Header />);
+  beforeEach(() => renderWithProvider(<Header />));
 
+  it('Is in the document', () => {
     const headind = screen.getByRole('banner');
 
     expect(headind).toBeInTheDocument();
   });
 
   it('Has a logo image', () => {
-    renderWithProvider(<Header />);
-
     const image = screen.getByRole('img', { name: 'MKS Sistemas logo image'});
 
     expect(image).toBeInTheDocument();
@@ -22,8 +20,6 @@ describe('Header component', () => {
   });
 
   it('Has one button', () => {
-    renderWithProvider(<Header />);
-
     const button = screen.getByRole('button');
 
     expect(button).toBeInTheDocument();

@@ -4,7 +4,7 @@ import { renderWithProvider } from './helpers/renderWithProvider';
 import { Footer } from '@/components/Footer';
 
 describe('Footer component', () => {
-  beforeAll(() => renderWithProvider(<Footer />));
+  beforeEach(() => renderWithProvider(<Footer />));
 
   it('Has the "MKS sistemas © Todos os direitos reservados" text', () => {
     const companyName = screen.getByText('MKS sistemas © Todos os direitos reservados');
