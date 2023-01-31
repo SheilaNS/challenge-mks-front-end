@@ -1,17 +1,11 @@
-import ProductCard from "@/components/ProductCard";
+import { ApiProduct } from "@/@types/interfaces";
+import { ProductCard } from "@/components/ProductCard";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../api/fetchProducts";
 import { ProductContainer } from "./styles";
 
-interface ProductProps {
-  id: number;
-  name: string;
-  photo: string;
-  price: string;
-}
-
 export default function Products() {
-  const [products, setProducts] = useState<ProductProps[]>([]);
+  const [products, setProducts] = useState<ApiProduct[] | []>([]);
 
   useEffect(() => {
     fetchProducts().then((response) => {
@@ -21,15 +15,14 @@ export default function Products() {
 
   return (
     <ProductContainer>
-      {products.map((product) => (
-        <ProductCard
-          id={product.id}
-          key={product.id}
-          name={product.name}
-          photo={product.photo}
-          price={product.price}
-        />
-      ))}
+      {products.map((product) => {
+        return (
+          <ProductCard
+            key={product.id}
+            {...product}
+          />
+        );
+      })}
     </ProductContainer>
   );
 }
