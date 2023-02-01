@@ -46,7 +46,7 @@ export default function ProductCard(props: ApiProduct) {
           handleAddProduct({ product: { ...props, qtd: 1 }, quantity: 1 })
         }
       >
-        <Image src={bag} alt="Shopping bag icon" className="buy-button-icon" />
+        <Image src={bag} alt="" className="buy-button-icon" />
         <span className="buy-button-title">COMPRAR</span>
       </BuyButton>
     </ProductCardContainer>

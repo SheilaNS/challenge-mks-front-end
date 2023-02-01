@@ -91,13 +91,13 @@ export const TotalContainer = styled.div`
   @media only screen and (max-width: 320px) {
     width: 300px;
     padding: 32px;
-    bottom: 55px;
+    bottom: 65px;
   }
 
-  @media only screen and (min-width: 321px) and (max-width: 375px) {
+  @media only screen and (min-width: 321px) and (max-width: 424px) {
     width: 330px;
     padding: 32px;
-    bottom: 60px;
+    bottom: 75px;
   }
 
   @media only screen and (min-width: 425px) and (max-width: 768px) {
@@ -124,7 +124,7 @@ export const CheckoutButton = styled.button`
     height: 66px;
   }
 
-  @media only screen and (min-width: 321px) and (max-width: 375px) {
+  @media only screen and (min-width: 321px) and (max-width: 424px) {
     width: 330px;
     font-size: 20px;
     height: 66px;
