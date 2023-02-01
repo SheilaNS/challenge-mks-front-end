@@ -18,8 +18,12 @@ export function CartModal() {
   const cart = useAppSelector(cartState);
 
   function handleFinishShop() {
-    dispatch(clearCart());
-    alert('Compra finalizada com sucesso!');
+    if (cart.items.length !== 0) {
+      dispatch(clearCart());
+      alert('Compra finalizada com sucesso!');
+    } else {
+      alert('Seu carrinho está vazio.')
+    }
   }
 
   return (
