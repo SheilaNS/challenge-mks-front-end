@@ -16,7 +16,7 @@ interface ActionAddProductProps {
   quantity: number;
 }
 
-export function ProductCard(props: ApiProduct) {
+export default function ProductCard(props: ApiProduct) {
   const dispatch = useAppDispatch();
 
   function handleAddProduct(product: ActionAddProductProps) {
