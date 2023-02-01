@@ -31,16 +31,23 @@ export function ProductCard(props: ApiProduct) {
           alt={props.name}
           width={100}
           height={138}
+          className="cart-product-image"
         />
       </ImageContainer>
       <ProductTitle>
-        <h3>{props.name}</h3>
-        <span>R${priceFormater(props.price)}</span>
+        <h3 className="cart-product-title">{props.name}</h3>
+        <span className="cart-product-price">
+          R${priceFormater(props.price)}
+        </span>
       </ProductTitle>
-      <p>Redesigned from scratch and completely revised.</p>
-      <BuyButton onClick={() => handleAddProduct({product: {...props, qtd: 1}, quantity: 1})}>
-        <Image src={bag} alt="" />
-        <span>COMPRAR</span>
+      <p className="cart-product-description">Redesigned from scratch and completely revised.</p>
+      <BuyButton
+        onClick={() =>
+          handleAddProduct({ product: { ...props, qtd: 1 }, quantity: 1 })
+        }
+      >
+        <Image src={bag} alt="Shopping bag icon" className="buy-button-icon" />
+        <span className="buy-button-title">COMPRAR</span>
       </BuyButton>
     </ProductCardContainer>
   );

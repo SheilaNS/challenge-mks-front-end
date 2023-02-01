@@ -28,14 +28,14 @@ export function CartModal() {
         </CloseButton>
 
         {cart.items.length === 0 ? (
-          <h3>Seu carrinho está vazio.</h3>
+          <h3 className="empty-text">Seu carrinho está vazio.</h3>
         ) : (
           cart.items.map((elem) => <CartCard key={elem.id} {...elem} />)
         )}
 
         <TotalContainer>
-          <p>Total:</p>
-          <p>R${priceFormater(cart.total.toString().concat(".00"))}</p>
+          <p className="total-text">Total:</p>
+          <p className="price-text">R${priceFormater(cart.total.toString().concat(".00"))}</p>
         </TotalContainer>
 
         <CheckoutButton>Finalizar Compra</CheckoutButton>

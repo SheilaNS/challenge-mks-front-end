@@ -57,7 +57,7 @@ describe('ProductCard component', () => {
     })
   });
 
-  it('Has "Total:" and "R$0" texts in the screen', async () => {
+  it('Has a finish shopping button', async () => {
     const button = screen.getByRole('button');
     
     expect(button).toBeInTheDocument();

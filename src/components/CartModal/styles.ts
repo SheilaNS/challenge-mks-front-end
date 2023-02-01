@@ -17,6 +17,10 @@ export const Title = styled(Dialog.Title)`
   font-weight: 700;
   margin-bottom: 70px;
   font-size: 27px;
+
+  @media only screen and (max-width: 375px) {
+    margin-left: 32px;
+  }
 `
 
 export const Content = styled(Dialog.Content)`
@@ -30,11 +34,23 @@ export const Content = styled(Dialog.Content)`
   overflow-y: auto;
   padding-bottom: 200px;
 
-  h3 {
+  .empty-text {
     color: ${(props) => props.theme.white};
     margin-left: 40px;
     font-size: 16px;
     font-weight: 400;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 300px;
+  }
+
+  @media only screen and (min-width: 321px) and (max-width: 375px) {
+    width: 330px;
+  }
+
+  @media only screen and (min-width: 425px) and (max-width: 768px) {
+    width: 380px;
   }
 `
 
@@ -50,6 +66,10 @@ export const CloseButton = styled(Dialog.Close)`
   line-height: 0;
   cursor: pointer;
   color: ${(props) => props.theme.white};
+
+  @media only screen and (max-width: 320px) {
+    color: ${(props) => props.theme.primary};
+  }
 `;
 
 export const TotalContainer = styled.div`
@@ -62,10 +82,27 @@ export const TotalContainer = styled.div`
   width: 485px;
   background: ${(props) => props.theme.primary};
 
-  p {
+  .total-text, .price-text {
     color: ${(props) => props.theme.white};
     font-weight: 700;
     font-size: 28px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    width: 300px;
+    padding: 32px;
+    bottom: 55px;
+  }
+
+  @media only screen and (min-width: 321px) and (max-width: 375px) {
+    width: 330px;
+    padding: 32px;
+    bottom: 60px;
+  }
+
+  @media only screen and (min-width: 425px) and (max-width: 768px) {
+    width: 380px;
+    bottom: 85px;
   }
 `
 
@@ -80,4 +117,20 @@ export const CheckoutButton = styled.button`
   cursor: pointer;
   position: fixed;
   bottom: 0;
+
+  @media only screen and (max-width: 320px) {
+    width: 300px;
+    font-size: 20px;
+    height: 66px;
+  }
+
+  @media only screen and (min-width: 321px) and (max-width: 375px) {
+    width: 330px;
+    font-size: 20px;
+    height: 66px;
+  }
+
+  @media only screen and (min-width: 425px) and (max-width: 768px) {
+    width: 380px;
+  }
 `
