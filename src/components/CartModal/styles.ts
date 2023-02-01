@@ -45,7 +45,7 @@ export const Content = styled(Dialog.Content)`
     width: 300px;
   }
 
-  @media only screen and (min-width: 321px) and (max-width: 375px) {
+  @media only screen and (min-width: 321px) and (max-width: 424px) {
     width: 330px;
   }
 
