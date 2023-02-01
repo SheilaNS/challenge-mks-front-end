@@ -94,14 +94,14 @@ export const TotalContainer = styled.div`
     bottom: 65px;
   }
 
-  @media only screen and (min-width: 321px) and (max-width: 424px) {
+  @media only screen and (min-width: 321px) and (max-width: 375px) {
     width: 330px;
     padding: 32px;
     bottom: 75px;
   }
 
-  @media only screen and (min-width: 425px) and (max-width: 768px) {
-    width: 380px;
+  @media only screen and (min-width: 376px) and (max-width: 768px) {
+    width: 376px;
     bottom: 85px;
   }
 `
