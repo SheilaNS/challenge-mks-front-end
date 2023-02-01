@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProductContainer = styled.div`
+const ProductContainer = styled.div`
   max-width: 1050px;
   margin: 116px auto;
   display: flex;
@@ -23,3 +23,5 @@ export const ProductContainer = styled.div`
     padding-bottom: 50px;
   }
 `;
+
+export default ProductContainer;

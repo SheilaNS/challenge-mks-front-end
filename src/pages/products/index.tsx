@@ -2,7 +2,7 @@ import { ApiProduct } from "@/@types/interfaces";
 import { ProductCard } from "@/components/ProductCard";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../api/fetchProducts";
-import { ProductContainer } from "./styles";
+import ProductContainer from "./styles";
 
 export default function Products() {
   const [products, setProducts] = useState<ApiProduct[] | []>([]);
