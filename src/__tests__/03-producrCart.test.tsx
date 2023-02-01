@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { renderWithProvider } from './helpers/renderWithProvider';
-import { ProductCard } from '@/components/ProductCard';
+import ProductCard from '@/components/ProductCard';
 import { products } from './data/products';
 
 const productsData = products.products[0];
