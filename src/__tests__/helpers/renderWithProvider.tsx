@@ -16,5 +16,6 @@ export function renderWithProvider(children: React.ReactElement) {
         </Provider>
       </ThemeProvider>
     ),
+    history,
   };
 }
