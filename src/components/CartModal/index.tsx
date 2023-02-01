@@ -1,5 +1,5 @@
-import { useAppSelector } from "@/hooks";
-import { cartState } from "@/redux/reducers/cart";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { cartState, clearCart } from "@/redux/reducers/cart";
 import { priceFormater } from "@/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "phosphor-react";
@@ -14,7 +14,13 @@ import {
 } from "./styles";
 
 export function CartModal() {
+  const dispatch = useAppDispatch();
   const cart = useAppSelector(cartState);
+
+  function handleFinishShop() {
+    dispatch(clearCart());
+    alert('Compra finalizada com sucesso!');
+  }
 
   return (
     <Dialog.Portal>
@@ -38,7 +44,9 @@ export function CartModal() {
           <p className="price-text">R${priceFormater(cart.total.toString().concat(".00"))}</p>
         </TotalContainer>
 
-        <CheckoutButton>Finalizar Compra</CheckoutButton>
+        <CheckoutButton
+          onClick={() => handleFinishShop()}
+        >Finalizar Compra</CheckoutButton>
       </Content>
     </Dialog.Portal>
   );
